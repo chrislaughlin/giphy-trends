@@ -1,26 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import {StyledApp} from "./styles";
+import Playing from "./playing";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+    const [playing, setPlaying] = useState(false);
+    return (
+        <StyledApp>
+            <h1>
+                Are you on trend?
+            </h1>
+            {
+                !playing &&
+                <button
+                    onClick={() => setPlaying(true)}
+                >
+                    PLAY
+                </button>
+            }
+            {
+                playing &&
+                <Playing
+                    onDone={() => setPlaying(false)}
+                />
+            }
+        </StyledApp>
+    );
 }
 
 export default App;
