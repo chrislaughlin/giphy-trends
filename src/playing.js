@@ -103,6 +103,7 @@ const Playing = ({onDone}) => {
                                             height: gif.images.downsized.height,
                                             width: gif.images.downsized.width,
                                         }}
+                                        alt={gif.title}
                                     />
                                 </div>
                             )
